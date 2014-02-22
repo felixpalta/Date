@@ -20,6 +20,13 @@ try
 	cout << "Day: " << lol.day() << endl;
 	cout << "Leap?: " << (leapYear(lol.year()) ? "Yes": "No") << endl;
 
+	//another operator tests
+	cout << wut << endl;
+
+	cout << "create a new Year object" << endl;
+	Year newyear;
+	cin >> newyear;
+	cout << newyear << endl;
 
 	}
 	catch(Date::Invalid e){

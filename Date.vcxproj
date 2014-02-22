@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Year.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
