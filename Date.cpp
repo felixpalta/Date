@@ -54,9 +54,17 @@ bool is_date(Year y,Date::Month m, int d){
 	if (m < Date::jan || m > Date::december)
 		return false;
 // year checking is done inside Year constructor
-	if (d < 1 )
-		return false;
+	int days_in_the_month = 31; // most months have 31 days
 	switch (m){
+	case Date::feb:
+		days_in_the_month = leapYear(y) ? 29: 28;
+		break;
+	case Date::april:
+	case Date::jun:
+	case Date::sep:
+	case Date::nov:
+		days_in_the_month = 30;
+		break;
 	case Date::jan:
 	case Date::march:
 	case Date::may:
@@ -64,20 +72,12 @@ bool is_date(Year y,Date::Month m, int d){
 	case Date::aug:
 	case Date::oct:
 	case Date::december:
-		return (d <= 31);
-	case Date::april:
-	case Date::jun:
-	case Date::sep:
-	case Date::nov:
-		return (d <= 30);
-	case Date::feb:
-		if (leapYear(y))
-			return (d <= 29);
-		return (d <= 28);
+		break;
 	default:
 		return false;
+	}
+	return (d <= days_in_the_month);
 
-	};
 }
 
 bool operator==(const Date& a, const Date& b){
