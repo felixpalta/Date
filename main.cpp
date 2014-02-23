@@ -26,6 +26,8 @@ try
 	cout << "create a new Year object" << endl;
 	Year newyear;
 	cin >> newyear;
+	if (!cin) error("Failed to input a year");
+		
 	cout << newyear << endl;
 
 	}

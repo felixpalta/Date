@@ -93,6 +93,8 @@ ostream& operator<<(ostream& os,const Date& d){
 	os << '(' << d.day() << ',' << d.month() << ',' << d.year() << ')';
 	return os;
 }
-istream& operator>>(istream& is,Date& dd);
+// istream& operator>>(istream& is,Date& dd){
+// 	Year y;
+// }
 
 }
