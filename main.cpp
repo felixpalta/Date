@@ -23,12 +23,12 @@ try
 	//another operator tests
 	cout << wut << endl;
 
-	cout << "create a new Year object" << endl;
-	Year newyear;
-	cin >> newyear;
-	if (!cin) error("Failed to input a year");
-		
-	cout << newyear << endl;
+	cout << "input a new date as (day,month,year)" << endl;
+	Date newdate;
+	cin >> newdate;
+	if (!cin) error("failed to input date");
+	cout << newdate << endl;
+	
 
 	}
 	catch(Date::Invalid e){

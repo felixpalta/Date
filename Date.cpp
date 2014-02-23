@@ -93,8 +93,22 @@ ostream& operator<<(ostream& os,const Date& d){
 	os << '(' << d.day() << ',' << d.month() << ',' << d.year() << ')';
 	return os;
 }
-// istream& operator>>(istream& is,Date& dd){
-// 	Year y;
-// }
+
+// input format is (day,month,year) as (1,4,2014)
+istream& operator>>(istream& is,Date &dd){
+	Year y;
+	int d;
+	int m;
+	char left_bracket,first_comma,second_comma,right_bracket;
+	is >> left_bracket >> d >> first_comma >> m >> second_comma >> y >> right_bracket;
+	if (!is) return is;
+	if (left_bracket != '(' || first_comma != ',' || second_comma != ',' || right_bracket != ')' ){
+		is.clear(ios_base::failbit);
+		return is;
+	}
+	Date tempDate(d,Date::Month(m),y);	// new object created, to check if the date is valid.
+	dd = tempDate;
+	return is;
+}
 
 }
