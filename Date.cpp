@@ -100,14 +100,13 @@ istream& operator>>(istream& is,Date &dd){
 	int d;
 	int m;
 	char left_bracket,first_comma,second_comma,right_bracket;
-	is >> left_bracket >> d >> first_comma >> m >> second_comma >> y >> right_bracket;
+	is >> left_bracket >> d >> first_comma >> m >> second_comma >> y >> right_bracket;	// invalid year is checked here, it will set failbit
 	if (!is) return is;
 	if (left_bracket != '(' || first_comma != ',' || second_comma != ',' || right_bracket != ')' ){
 		is.clear(ios_base::failbit);
 		return is;
 	}
-	Date tempDate(d,Date::Month(m),y);	// new object created, to check if the date is valid.
-	dd = tempDate;
+	dd = Date(d,Date::Month(m),y);	// new object created, to check if the date is valid.
 	return is;
 }
 
